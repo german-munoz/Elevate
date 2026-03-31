@@ -1,16 +1,19 @@
-secret_name = "databricks-access-token-usb-fhb"
-server_hostname = "adb-3333666406974425.5.azuredatabricks.net"
-http_path = "/sql/1.0/warehouses/8d90926f1cbf50ab"
-database = "edp_sourcesystem"
-schema = "clarizen"
-object_name = "vw_phub_client"
-landing_table_name = "company"
-write_mode = "overwrite"
-write_schema_option = "overwriteSchema"
-select_behavior = "all"
-column_names = 
-select_creation_statement = ""
-filter_expression = None
-except_column = ""
-column_partition_name = None
-batch_size = 50000
+source:
+  secret_name: "databricks-access-token-usb-fhb" # Key Vault secret id or Databricks secret scope key
+  server_hostname: "adb-3333666406974425.5.azuredatabricks.net"
+  http_path: "/sql/1.0/warehouses/8d90926f1cbf50ab"
+  catalog: "edp_sourcesystem" # was: database
+  schema: "clarizen"
+  object_name: "vw_phub_client"
+target:
+  landing_table_name: "company"
+  write_mode: "overwrite"
+  write_schema_option: "overwriteSchema"
+extract:
+  select_behavior: "all" # e.g. all | explicit
+  column_names: [] # set when select_behavior requires explicit columns
+  select_creation_statement: ""
+  filter_expression: null
+  except_column: ""
+  column_partition_name: null
+  batch_size: 50000

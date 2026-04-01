@@ -1,18 +1,15 @@
 #This is where I add all curated mappings
 connection:
-  secret_name: "databricks-access-token-usb-fhb"
-  server_hostname: "adb-3333666406974425.5.azuredatabricks.net"
-  http_path: "/sql/1.0/warehouses/8d90926f1cbf50ab"
 
 # Applied to every table unless overridden on that table row.
 defaults:
-  catalog: "work_dynamics"
-  schema: "curated_consumption"
+  catalog: "Elevate"
+  schema: "landing"
   lakehouse_write: "curated"
   write_mode: "overwrite"
   write_schema_option: "overwriteSchema"
   extract:
-    select_behavior: "all"
+    select_behavior: ""
     column_names: []
     select_creation_statement: ""
     filter_expression: null

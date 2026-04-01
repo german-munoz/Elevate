@@ -27,19 +27,29 @@ tables:
     source_object: "vw_phub_client"
     landing_table_name: "company"
 
-  - id: project
-    source_object: "vw_some_project_view"
-    landing_table_name: "project"
-    # Optional: override catalog/schema for this table only
-    # catalog: "other_catalog"
-    # schema: "other_schema"
+  - id: property
+    source_object: "vw_propertyhub_oneviewclientproperty"
+    landing_table_name: "property"
 
-  - id: milestone
-    source_object: "vw_milestone"
-    landing_table_name: "milestone"
-    # Optional: override only part of extract for this table
-    extract:
-      filter_expression: "updated_date >= '2024-01-01'"
-      batch_size: 100000
+  - id: business_unit
+    source_object: "vw_businessunitsmasterproperty"
+    landing_table_name: "business_unit"
+
+  - id: business_unit
+    source_object: "vw_businessunitsmasterproperty"
+    landing_table_name: "business_unit"
+
+  - id: work_order
+    source_object: "vw_workorder"
+    landing_table_name: "work_order"
+
+  - id: lease
+    source_object: "vw_ovla_companyclient"
+    landing_table_name: "vw_ovla_companyclient"
+
+    
+
+    
+
 
 

@@ -23,4 +23,5 @@ tables:
     source_object: "company"
     landing_table_name: "company"
     column_names: >
-      [oneviewclientid AS company_id, clientname AS company_name, isdeleted AS is_deleted, city, state, country, addressline1 AS address1, addressline2 AS address2, postalcode AS postal_code, jllvertical AS jll_vertical,clientindustry,]
+      [oneviewclientid AS company_id, clientname AS company_name, isdeleted AS is_deleted, city, state, country, addressline1 AS address1, addressline2 AS address2, postalcode AS postal_code,
+      jllvertical AS jll_vertical, clientindustry AS company_industry]

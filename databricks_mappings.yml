@@ -35,10 +35,6 @@ tables:
     source_object: "vw_businessunitsmasterproperty"
     landing_table_name: "business_unit"
 
-  - id: business_unit
-    source_object: "vw_businessunitsmasterproperty"
-    landing_table_name: "business_unit"
-
   - id: work_order
     source_object: "vw_workorder"
     landing_table_name: "work_order"

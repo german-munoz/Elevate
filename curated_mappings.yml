@@ -8,6 +8,7 @@ connection:
 defaults:
   catalog: "work_dynamics"
   schema: "curated_consumption"
+  lakehouse_write: "landing"
   write_mode: "overwrite"
   write_schema_option: "overwriteSchema"
   extract:

@@ -1,1 +1,49 @@
 #This is where I add all curated mappings
+connection:
+  secret_name: "databricks-access-token-usb-fhb"
+  server_hostname: "adb-3333666406974425.5.azuredatabricks.net"
+  http_path: "/sql/1.0/warehouses/8d90926f1cbf50ab"
+
+# Applied to every table unless overridden on that table row.
+defaults:
+  catalog: "work_dynamics"
+  schema: "curated_consumption"
+  write_mode: "overwrite"
+  write_schema_option: "overwriteSchema"
+  extract:
+    select_behavior: "all"
+    column_names: []
+    select_creation_statement: ""
+    filter_expression: null
+    except_column: ""
+    column_partition_name: null
+    batch_size: 50000
+
+# Each entry is one source → landing run. Add or reorder rows as needed.
+tables:
+  - id: company
+    source_object: "vw_phub_client"
+    landing_table_name: "company"
+
+  - id: property
+    source_object: "vw_propertyhub_oneviewclientproperty"
+    landing_table_name: "property"
+
+  - id: business_unit
+    source_object: "vw_businessunitsmasterproperty"
+    landing_table_name: "business_unit"
+
+  - id: work_order
+    source_object: "vw_workorder"
+    landing_table_name: "work_order"
+    extract:
+      filter_expression: >
+        creationdate >= '2025-01-01' and ovcid IN (7642167, 7642176, 95863998, 8749746, 94339816, 7642182, 9995736, 7745730, 9051305, 14114711, 7642192, 9907393, 9615595, 7642213, 7613994, 5354570,
+        7642225, 7963973, 7642238, 8306253, 7642245, 9882197, 95050911, 7642254, 7388376, 5154142, 17516284, 94527058, 13234202, 7642264, 7642265, 8306261, 96837835, 7734113, 9710779, 96780513,
+        13234165, 97174002, 97244444, 23511059, 16702832, 7642201, 28110056, 9884080, 8352547, 16257639, 96756416, 15637926, 7642246, 27597734, 13537662, 78302796) and
+        vendorinvoicedate >= '1900-01-01'  and 
+        vendorinvoicedate <= '2100-01-01'
+
+  - id: lease
+    source_object: "vw_ovla_companyclient"
+    landing_table_name: "lease"

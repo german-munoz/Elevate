@@ -1,19 +1,45 @@
-source:
-  secret_name: "databricks-access-token-usb-fhb" # Key Vault secret id or Databricks secret scope key
+# Copy to pipeline.yaml (gitignored). One connection; many table jobs.
+# Token: resolve secret_name at runtime; never commit raw tokens.
+
+connection:
+  secret_name: "databricks-access-token-usb-fhb"
   server_hostname: "adb-3333666406974425.5.azuredatabricks.net"
   http_path: "/sql/1.0/warehouses/8d90926f1cbf50ab"
-  catalog: "edp_sourcesystem" # was: database
-  schema: "clarizen"
-  object_name: "vw_phub_client"
-target:
-  landing_table_name: "company"
+
+# Applied to every table unless overridden on that table row.
+defaults:
+  catalog: "work_dynamics"
+  schema: "curated_consumption"
   write_mode: "overwrite"
   write_schema_option: "overwriteSchema"
-extract:
-  select_behavior: "all" # e.g. all | explicit
-  column_names: [] # set when select_behavior requires explicit columns
-  select_creation_statement: ""
-  filter_expression: null
-  except_column: ""
-  column_partition_name: null
-  batch_size: 50000
+  extract:
+    select_behavior: "all"
+    column_names: []
+    select_creation_statement: ""
+    filter_expression: null
+    except_column: ""
+    column_partition_name: null
+    batch_size: 50000
+
+# Each entry is one source → landing run. Add or reorder rows as needed.
+tables:
+  - id: company
+    source_object: "vw_phub_client"
+    landing_table_name: "company"
+
+  - id: project
+    source_object: "vw_some_project_view"
+    landing_table_name: "project"
+    # Optional: override catalog/schema for this table only
+    # catalog: "other_catalog"
+    # schema: "other_schema"
+
+  - id: milestone
+    source_object: "vw_milestone"
+    landing_table_name: "milestone"
+    # Optional: override only part of extract for this table
+    extract:
+      filter_expression: "updated_date >= '2024-01-01'"
+      batch_size: 100000
+
+

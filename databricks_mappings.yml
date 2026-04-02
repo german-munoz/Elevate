@@ -49,8 +49,8 @@ tables:
         vendorinvoicedate <= '2100-01-01'
 
   - id: lease
-    source_object: "vw_ovla_companyclient"
-    landing_table_name: "vw_ovla_companyclient"
+    source_object: "vw_leases"
+    landing_table_name: "lease"
 
     
 

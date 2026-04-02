@@ -51,6 +51,8 @@ tables:
   - id: lease
     source_object: "vw_leases"
     landing_table_name: "lease"
+    extract:
+      filter_expression: executiondate >= '1900-01-01' AND leasecommencementdate >= '1900-01-01' AND leaseendingdate >= '1900-01-01'
 
     
 

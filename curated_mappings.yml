@@ -32,3 +32,14 @@ tables:
       unitofmeasure AS unit_of_measure, address1 AS address1, address2 AS address2, city, clientpropertycode AS client_property_id, country, county, importlatitude AS latitude, importlongitude AS longitude, 
       postalcode AS postal_code, propertyname AS property_name, rsf AS rentable_square_footage, stateprovince AS state_province, regionhierarchy2 AS region_2, occupiedvaccant AS occupied_vaccant, 
       propertysubtype AS property_subtype, e1_bu AS business_unit, oneviewclientid AS company_id
+
+  - id: lease
+    source_table_name: "lease"
+    destination_table_name: "lease"
+    column_names: >
+      unitofmeasure AS unit_of_measure, tenuretype AS lease_type, sourcetenuretype AS source_lease_type, leasetypedescription AS lease_type_description, leasestatusdescription AS lease_status, 
+      sourceleasestatusdescription AS source_lease_status, termstatusdescription AS space_occupant_status, sourceleasename AS lease_name, executiondate AS lease_execution_date, 
+      leasecommencementdate AS lease_start_date, leaseendingdate AS lease_end_date, rentablebuildingareaquantity AS rentable_building_area, rentablelandareaquantity AS rentable_land_area, 
+      rentablebuildingandlandareaquantity AS rentable_total_area, rentablevacantareaquantity AS rentable_vacant_area, propertyidentifier AS property_id, portfoliotype AS portfolio_type, 
+      flexleaseyesorno AS is_flexible, totalarea AS total_area, localcurrencycode AS currency_code, leaseclientname AS lease_client_name, leaseparentidentifier AS lease_parent_id, vacantindicator AS is_vacant, 
+      sourcesystem AS source_system, udp_create_ts, udp_update_ts, is_deleted

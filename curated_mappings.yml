@@ -34,7 +34,7 @@ tables:
       propertysubtype AS property_subtype, e1_bu AS business_unit, oneviewclientid AS company_id
 
   - id: lease
-    source_table_name: "vw_ovla_companyclient"
+    source_table_name: "lease"
     destination_table_name: "lease"
     column_names: >
       unitofmeasure AS unit_of_measure, tenuretype AS lease_type, sourcetenuretype AS source_lease_type, leasetypedescription AS lease_type_description, leasestatusdescription AS lease_status, 

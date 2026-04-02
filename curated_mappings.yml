@@ -33,6 +33,7 @@ tables:
     source_object: "vw_propertyhub_oneviewclientproperty"
     landing_table_name: "property"
 
+
   - id: business_unit
     source_object: "vw_businessunitsmasterproperty"
     landing_table_name: "business_unit"

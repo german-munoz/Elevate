@@ -6,7 +6,7 @@ defaults:
   write_mode: "overwrite"
   write_schema_option: "overwriteSchema"
   extract:
-    select_behavior: "all"
+    select_behavior: "individual columns"
     column_names: []
     select_creation_statement: ""
     filter_expression: null

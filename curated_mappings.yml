@@ -23,3 +23,12 @@ tables:
     column_names: >
       oneviewclientid AS company_id, clientname AS company_name, addressline1 AS address1, addressline2 AS address2, city, state, country, postalcode AS postal_code, jllvertical AS jll_vertical,
       jllbusinessgroup AS jll_business_group, jllprimaryregion AS jll_region, clientindustry AS company_industry, isdeleted AS is_deleted
+
+  - id: property
+    source_table_name: "property"
+    destination_table_name: "property"
+    column_names: >
+      txtclientname AS company_name, isdeleted AS is_deleted, oneviewclientpropertyid AS property_id, areatype AS area_type, leasedowned AS lease_owned, propertytype AS property_type, status AS status,
+      unitofmeasure AS unit_of_measure, address1 AS address1, address2 AS address2, city, clientpropertycode AS client_property_id, country, county, importlatitude AS latitude, importlongitude AS longitude, 
+      postalcode AS postal_code, propertyname AS property_name, rsf AS rentable_square_footage, stateprovince AS state_province, regionhierarchy2 AS region_2, occupiedvaccant AS occupied_vaccant, 
+      propertysubtype AS property_subtype, e1_bu AS business_unit, oneviewclientid AS company_id

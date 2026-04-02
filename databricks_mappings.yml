@@ -24,6 +24,7 @@ defaults:
 
 # Each entry is one source → landing run. Add or reorder rows as needed.
 tables:
+
   - id: company
     source_object: "vw_phub_client"
     landing_table_name: "company"

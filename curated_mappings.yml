@@ -30,7 +30,7 @@ tables:
     column_names: >
       HASHBYTES('SHA2_256', CONCAT(oneviewclientid, '|', oneviewclientpropertyid)) AS hk_property_id, oneviewclientpropertyid AS property_id, clientpropertycode AS client_property_id, propertyname AS property_name,
       address1 AS address1, address2 AS address2, county, city, stateprovince AS state_province, country, postalcode AS postal_code, regionhierarchy2 AS region_2, propertytype AS property_type, 
-      propertysubtype AS property_subtype, status AS status, occupiedvaccant AS occupied_vaccant, leasedowned AS lease_owned, areatype AS area_type, rsf AS rentable_square_footage, unitofmeasure AS unit_of_measure,
+      propertysubtype AS property_subtype, status AS status, occupiedvaccant AS occupied_vaccant, leasedowned AS lease_owned, areatype AS area_type, rsf AS rentable_square_footage, unitofmeasure AS area_unit_of_measure,
       importlatitude AS latitude, importlongitude AS longitude, isdeleted AS is_deleted, e1_bu AS business_unit, oneviewclientid AS company_id, txtclientname AS company_name  
 
   - id: lease

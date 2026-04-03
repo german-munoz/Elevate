@@ -17,23 +17,40 @@ defaults:
 # Each entry is one source → landing run. Add or reorder rows as needed.
 tables:
 
-  - id: company
+  - id: 1
     source_table_name: "company"
     destination_table_name: "company"
     column_names: >
       oneviewclientid AS company_id, clientname AS company_name, addressline1 AS address1, addressline2 AS address2, city, state, country, postalcode AS postal_code, jllvertical AS jll_vertical,
       jllbusinessgroup AS jll_business_group, jllprimaryregion AS jll_region, clientindustry AS company_industry, isdeleted AS is_deleted
 
-  - id: property
+  - id: 2
     source_table_name: "property"
     destination_table_name: "property"
     column_names: >
       HASHBYTES('SHA2_256', CONCAT(oneviewclientid, '|', oneviewclientpropertyid)) AS hk_property_id, oneviewclientpropertyid AS property_id, clientpropertycode AS client_property_id, propertyname AS property_name,
       address1 AS address1, address2 AS address2, county, city, stateprovince AS state_province, country, postalcode AS postal_code, regionhierarchy2 AS region_2, propertytype AS property_type, 
-      propertysubtype AS property_subtype, status AS status, occupiedvaccant AS occupied_vaccant, leasedowned AS lease_owned, areatype AS area_type, rsf AS rentable_square_footage, unitofmeasure AS area_unit_of_measure,
-      importlatitude AS latitude, importlongitude AS longitude, isdeleted AS is_deleted, e1_bu AS business_unit, oneviewclientid AS company_id, txtclientname AS company_name  
+      propertysubtype AS property_subtype, status AS property_status, occupiedvaccant AS occupancy_status, leasedowned AS lease_owned, areatype AS area_type, rsf AS rentable_square_footage, unitofmeasure AS area_unit_of_measure,
+      importlatitude AS latitude, importlongitude AS longitude, isdeleted AS is_deleted, e1_bu AS business_unit, oneviewclientid AS company_id, txtclientname AS company_name
 
-  - id: lease
+  - id: 3
+    source_table_name: "work_order"
+    destination_table_name: "work_order"
+    column_names: >
+      workordernumber AS work_order_number, vendorid AS vendor_id, propertyidentifier AS property_id, clientidentifier AS company_id, workorderstatusdescription AS work_order_status,
+      workclasssubtypedescription AS work_order_type, specialty AS specialty, userscreenname AS vendor_name, creationdate AS creation_date, firstcompletiondate AS completion_date, lastcompletiondate AS completion_date,
+      vendorinvoicenumber AS vendor_invoice_number, invoicetotalamount AS invoice_total_amount, vendorinvoicedate AS vendor_invoice_date, workordercategorydescription AS work_order_category, currencycode AS currency_code,
+      workordertaskdescription AS task, invoicepaiddate AS invoice_paid_date, servicelevelagreementoverduedayscount AS overdue_days_over_sla, workclassdescription AS reactive_preventative_category,
+      startontimeflag AS start_on_time_flag, completeontimeflag AS complete_on_time_flag, invoicestatus AS invoice_status, workdescription AS Note, invoicestatusdescription AS invoice_status,
+      coststatusdescription AS cost_status, spendtotal AS spend_total, quoteamount AS quote_amount, quotestatusdescription AS quote_status, totalexpenseamount AS total_expense, chargecode AS charge_code,
+      costexporteddatetime AS cost_date, totallaborcostamount AS labor_cost, totalmaterialscostamount AS material_cost, totalmiscellaneouscostamount AS miscellaneous_cost, totalcostamount AS total_cost,
+      totallaborhourscount AS total_labor_hours, quotesubmitteddatetime AS quote_submitted_date, quoteapproveddatetime AS quote_approved_date, deadlinedatetime AS due_date, parentworkorderid AS parent_work_order_id,
+      workorderid AS work_order_id, datetimelastaction AS last_action_date, ovcid AS company_id, ponumber AS po_number, billingaccountnumber AS billing_account_number, servicelevelagreementonsitedateutc AS sla_date,
+      priorityname AS priority, quoteapprovedby AS quote_approved_by, sourcequoteid AS source_quote_id, checknumber AS check_number, billedamount AS billed_amount, billingstatus AS billed_status,
+      glaccountid AS gl_account_id, glaccountname AS gl_account_name, glaccountdescription AS gl_account_description
+    
+
+  - id: 4
     source_table_name: "lease"
     destination_table_name: "lease"
     column_names: >

@@ -25,19 +25,19 @@ defaults:
 # Each entry is one source → landing run. Add or reorder rows as needed.
 tables:
 
-  - id: company
+  - id: 1
     source_object: "vw_phub_client"
     landing_table_name: "company"
 
-  - id: property
+  - id: 2
     source_object: "vw_propertyhub_oneviewclientproperty"
     landing_table_name: "property"
 
-  - id: business_unit
+  - id: 3
     source_object: "vw_businessunitsmasterproperty"
     landing_table_name: "business_unit"
 
-  - id: work_order
+  - id: 4
     source_object: "vw_workorder"
     landing_table_name: "work_order"
     extract:
@@ -48,7 +48,7 @@ tables:
         vendorinvoicedate >= '1900-01-01'  and 
         vendorinvoicedate <= '2100-01-01'
 
-  - id: lease
+  - id: 5
     source_object: "vw_leases"
     landing_table_name: "lease"
     extract:

@@ -32,7 +32,10 @@ tables:
       address1 AS address1, address2 AS address2, county, city, stateprovince AS state_province, country, postalcode AS postal_code, regionhierarchy2 AS region_2, propertytype AS property_type, 
       propertysubtype AS property_subtype, status AS property_status, occupiedvaccant AS occupancy_status, leasedowned AS lease_owned, areatype AS area_type, rsf AS rentable_square_footage, unitofmeasure AS area_unit_of_measure,
       importlatitude AS latitude, importlongitude AS longitude, isdeleted AS is_deleted, e1_bu AS business_unit, oneviewclientid AS company_id, txtclientname AS company_name
-
+      
+      
+      
+      
   - id: 3
     source_table_name: "work_order"
     destination_table_name: "work_order"
